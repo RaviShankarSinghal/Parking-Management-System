@@ -1,0 +1,33 @@
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Parking System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class:"nav-link active aria-current page" %>
+        </li>
+      </ul> 
+    </div>
+  </div>
+</nav>
+<div class="subject_delete">
+  <h1>Delete Employee</h1>
+
+  <%=form_for @employee, url: admin_page_path(@employee), :method => 'delete' do |f| %>
+  
+  <p><%= flash.alert = "Are you sure you want to delete \"#{@employee.Name}\"?"%></p>
+
+  <div class="form-button">
+
+      <%= f.submit "Delete Subject",  :class => "button"%> 
+
+  </div>
+  
+      
+  <% end %>
+    
+</div>

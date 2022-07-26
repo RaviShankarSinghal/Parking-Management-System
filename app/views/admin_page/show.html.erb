@@ -1,0 +1,57 @@
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Parking System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class:"nav-link active aria-current page" %>
+        </li>
+      </ul> 
+    </div>
+  </div>
+</nav>
+<div class="subjects_show">
+
+    <% if !flash[:notice].blank?%>
+		<div class="notice">
+			<%= flash[:notice]%>
+		</div>
+    <%end%>
+
+    <table class="Subject Details View table_view">
+        <tr>  
+                <tr>
+                    <td><b>Functions</b></td>  
+                  <td><b><p>Show Subject</p></b></td>
+                </tr>
+
+                <tr>
+                    <th>Name</th>
+                    <td><%= @employee.Name %></td>
+                </tr>
+                <tr>
+                    <th>Position</th>
+                    <td><%= @employee.emp_id %></td>
+                </tr>
+                <tr>
+                  <th>Email</th>
+                  <td><%= @employee.email %></td>
+                </tr>
+                <tr>
+                    <th>Created At</th>
+                    <td><%= @employee.created_at %></td>
+                </tr>
+                <tr>
+                    <th>Updated At</th>
+                    <td><%= @employee.updated_at %></td>
+                </tr>
+        </tr>
+        
+        
+    </table>
+</div>

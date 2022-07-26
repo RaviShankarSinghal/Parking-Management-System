@@ -1,0 +1,48 @@
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Parking System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class:"nav-link active aria-current page" %>
+        </li>
+      </ul> 
+    </div>
+  </div>
+</nav>
+<div class="container">
+		
+		<h1 class="h1_new">Update Employee Details</h1>
+
+		<%=form_for @employee, url: admin_page_path(@employee), :method => 'patch' do |f| %>
+
+		<label><b>Name</b></label><br>
+
+			<%= f.text_field :Name %> <br><br>
+
+			<label><b>Employee ID</b></label><br>
+
+			<%= f.text_field :emp_id %> <br>
+
+			<label><b>Email ID</b></label><br>
+
+			<%= f.email_field :email %> <br>
+
+      <label><b>Password</b></label><br>
+
+			<%= f.password_field :password %> <br>
+
+			<div class="form-button">	
+
+				<%= f.submit "Update Subject",  :class => "button"%> 
+				
+		</div>
+
+
+		<% end %>
+		
+</div>
