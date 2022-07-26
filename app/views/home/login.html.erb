@@ -1,0 +1,13 @@
+<%= form_with url: home_login2_path, method: :get do |f| %>
+  <div class="field">
+    <%= f.label :email%>
+    <%= f.email_field :email%>
+  </div>
+  <div class="field">
+    <%= f.label :password%>
+    <%= f.password_field :password%>
+  </div>
+  <div class="action">
+    <%= f.submit "Submit" %>
+  </div>
+<%end%> 
