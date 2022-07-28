@@ -1,8 +1,7 @@
 class AdminPageController < ApplicationController
   def index
-    @employee = Employee.all
+    @employee = Employee.show
   end
-  
   def new
     @employee = Employee.new
   end
@@ -48,7 +47,7 @@ class AdminPageController < ApplicationController
   
   private
   def employee_params
-    params.require(:employee).permit(:emp_id, :Name, :email, :password)
+    params.require(:employee).permit(:name, :email, :password)
   end
   
   

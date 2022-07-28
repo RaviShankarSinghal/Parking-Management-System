@@ -1,9 +1,3 @@
-<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-<% if !flash[:notice].blank?%>
-		<div class="notice">
-			<%= flash[:notice]%>
-		</div>
-<%end%>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Parking System</a>
@@ -21,32 +15,21 @@
 </nav>
 <div class="subject index">
 	<h1>Parking Management System</h1>
-	<%= link_to "Add new Employee", "admin_page/new", class:'action new'%>
+	<%= link_to "Add new Vehicle", "employee/new", class:'action new'%>
 	<table class="listing" summary ="Subject list">
 			<tr class="header">
-					<th>#</th>
-					<th>Employee</th>
+					<th>Cars</th>
 					<th>Action</th>
 				</tr>
-				<% @employee.each do |emp|%>
+				<% @vec.each do |v|%>
 					<tr>
 							<td><%= emp.name%></td>
 							<td class="action">
-									<%= link_to "Cars", admin_page_path(emp.id)%>
-									<%= link_to "Edit", edit_admin_page_path(id: emp.id)%>
-									<%= link_to "Delete", admin_page_delete_path(emp.id)%>
+                  <%= link_to "Show", employee_index_path(v.id) %>
+									<%= link_to "Delete", employee_delete_path(v.id)%>
 							</td>
 					</tr>
 			<%end%>
 	</table>
 
 </div>
-
-
-
-
-
-
-
-
-

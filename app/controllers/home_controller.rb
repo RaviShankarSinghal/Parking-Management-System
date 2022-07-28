@@ -4,13 +4,19 @@ class HomeController < ApplicationController
   def login
   end
   def login2
-    @admin = Admin.find_by(email: params[:email], password: params[:password])
-   if @admin
-    session[:admin_id]=@admin.id
-    redirect_to admin_path
-   else
-    flash[:notice] = "Invalid Credentials"
-    render 'index'
-   end
+    @employee = Employee.find_by(email: params[:email], password: params[:password])
+    if @employee
+     if @employee.user_type.upcase == "ADMIN"
+       session[:admin_id]=@employee.id
+       redirect_to admin_page_index_path
+     elsif @employee.user_type.upcase == "EMPLOYEE"
+       session[:employee_id] = @employee.id
+       redirect_to employee_index_path
+     else
+       render 'index'
+     end
+    else
+      render 'index'
+    end
   end
 end

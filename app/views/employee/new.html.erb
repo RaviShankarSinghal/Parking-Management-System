@@ -1,4 +1,3 @@
-<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Parking System</a>
@@ -14,20 +13,24 @@
     </div>
   </div>
 </nav>
-<div class="subject_delete">
-  <h1>Delete Employee</h1>
+<div class="container">
+  <h1 class="h1_new">Add Car</h1>
 
-  <%=form_for @employee, url: admin_page_path(@employee), :method => 'delete' do |f| %>
-  
-  <p><%= flash.alert = "Are you sure you want to delete \"#{@employee.name}\"?"%></p>
+  <%=form_for @vec, url: "/employee", method: :post do |f| %>
 
-  <div class="form-button">
 
-      <%= f.submit "Delete Employee",  :class => "button"%> 
+  <label><b>Vehicle Number</b></label><br>
 
+    <%= f.text_field :number %> <br><br>
+
+    <label><b>Model No.</b></label><br>
+
+    <%= f.text_field :model_name %> <br>
+
+    <div class="form-button">	
+
+      <%= f.submit "Add Car",  :class => "button"%> 
   </div>
-  
-      
+
   <% end %>
-    
-</div>
+  

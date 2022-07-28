@@ -10,27 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_26_193514) do
-  create_table "admins", force: :cascade do |t|
-    t.string "Name"
-    t.string "Email"
-    t.string "Password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+ActiveRecord::Schema[7.0].define(version: 2022_07_28_160317) do
   create_table "employees", force: :cascade do |t|
-    t.string "Name"
+    t.string "name"
     t.string "email"
     t.string "password"
+    t.integer "user_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "emp_id"
   end
 
   create_table "parking_spots", force: :cascade do |t|
-    t.string "vehicle_no"
-    t.integer "parking_palce"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vechiles", force: :cascade do |t|
+    t.string "number"
+    t.string "car_model_name"
+    t.integer "employee_id"
+    t.integer "parking_spots_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
