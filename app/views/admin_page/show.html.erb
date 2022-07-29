@@ -15,6 +15,7 @@
     </div>
   </div>
 </nav>
+<%= link_to "Back to the Index Page", admin_page_index_path %>
 <div class="subjects_show">
 
     <% if !flash[:notice].blank?%>
@@ -37,6 +38,10 @@
                 <tr>
                   <th>Email</th>
                   <td><%= @employee.email %></td>
+                </tr>
+                <tr>
+                  <th>Cars</th>
+                  <td><%= @vec%></td>
                 </tr>
                 <tr>
                     <th>Created At</th>

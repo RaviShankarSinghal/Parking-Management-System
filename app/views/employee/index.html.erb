@@ -19,14 +19,19 @@
 	<table class="listing" summary ="Subject list">
 			<tr class="header">
 					<th>Cars</th>
+					<th>Model Name</th>
 					<th>Action</th>
 				</tr>
 				<% @vec.each do |v|%>
 					<tr>
-							<td><%= emp.name%></td>
+							<td><%= v.number%></td>
+							<td><%= v.car_model_name%></td>
 							<td class="action">
                   <%= link_to "Show", employee_index_path(v.id) %>
-									<%= link_to "Delete", employee_delete_path(v.id)%>
+									<%= link_to "Destroy", employee_path(v.id), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure to out the vehicle from Parking?"
+                  } %>
 							</td>
 					</tr>
 			<%end%>

@@ -1,13 +1,22 @@
-<%= form_with url: home_login2_path, method: :get do |f| %>
-  <div class="field">
-    <%= f.label :email%>
-    <%= f.email_field :email%>
-  </div>
-  <div class="field">
-    <%= f.label :password%>
-    <%= f.password_field :password%>
-  </div>
-  <div class="action">
-    <%= f.submit "Submit" %>
-  </div>
-<%end%> 
+<div class="col-lg-6 mx-lg-auto">
+    <div class="card shadow">
+      <div class="card-header">
+        <h2 class="card-title text-center">Log In</h2>
+      </div>
+      <div class="card-body">
+        <%= form_with url: home_login2_path, method: :get do |f| %>
+          <div class="field">
+            <%= f.label :email%>
+            <%= f.email_field :email%>
+          </div>
+          <div class="field">
+            <%= f.label :password%>
+            <%= f.password_field :password%>
+          </div>
+          <div class="action">
+            <%= f.submit "Submit" %>
+          </div>
+        <%end%> 
+      </div>
+    </div>
+</div>

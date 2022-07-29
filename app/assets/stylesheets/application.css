@@ -1,15 +1,82 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+table,th,td {
+	border: 1px solid black;
+}
+
+th,td {
+	padding: 10px;
+}
+
+a:link,
+a:visited {
+	background-color: #09d389;
+	color: black;
+	border: 2px solid #04AA6D;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	width: auto;
+}
+
+td a:link{
+	width: 80%;
+	margin-bottom: 10px;
+}
+
+a:hover,
+a:active {
+	background-color: aqua;
+	color:black;
+	opacity: 0.8px;
+}
+
+.listing {
+	margin: 20px 20px;
+}
+body {font-family: Arial, Helvetica, sans-serif;}
+.container {border: 3px solid #f1f1f1;}
+
+input{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.button{
+		background-color: #04AA6D;
+		border: 2px solid #04AA6D;
+		color: black;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+		width: 200px;
+		position: relative;
+		left: 46%;
+}
+
+.button:hover{
+	background-color: aqua;
+	opacity: 0.8;
+}
+
+.h1_new{
+	margin-left: 46%;
+}
+
+.index{
+	margin-top: 13%;
+	text-align: center;
+}
+.login{
+	display: flex;
+	justify-content: center;
+}
+.bt{
+	margin-left: 10px;
+}

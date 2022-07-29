@@ -15,7 +15,7 @@
 </nav>
 <div class="container">
   <h1 class="h1_new">Add Car</h1>
-
+<%= link_to "Back to the Index Page", employee_index_path %>
   <%=form_for @vec, url: "/employee", method: :post do |f| %>
 
 
@@ -25,11 +25,11 @@
 
     <label><b>Model No.</b></label><br>
 
-    <%= f.text_field :model_name %> <br>
+    <%= f.text_field :car_model_name %> <br>
 
     <div class="form-button">	
 
-      <%= f.submit "Add Car",  :class => "button"%> 
+      <%= f.submit "Parking In",  :class => "button"%> 
   </div>
 
   <% end %>

@@ -14,16 +14,17 @@
     </div>
   </div>
 </nav>
+<%= link_to "Back to the Index Page", admin_page_index_path %>
 <div class="subject_delete">
   <h1>Delete Employee</h1>
 
   <%=form_for @employee, url: admin_page_path(@employee), :method => 'delete' do |f| %>
   
-  <p><%= flash.alert = "Are you sure you want to delete \"#{@employee.name}\"?"%></p>
+  <p><%= flash.alert = "Are you sure you want to fire \"#{@employee.name}\"?"%></p>
 
   <div class="form-button">
 
-      <%= f.submit "Delete Employee",  :class => "button"%> 
+      <%= f.submit "Fired Employee",  :class => "button"%> 
 
   </div>
   

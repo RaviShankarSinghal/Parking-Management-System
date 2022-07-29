@@ -13,8 +13,9 @@
     </div>
   </div>
 </nav>
+<%= link_to "Back to the Index Page", admin_page_index_path %>
 <div class="container">
-  <h1 class="h1_new">Create Employee</h1>
+  <h1 class="h1_new">Create Employee/User</h1>
 
   <%=form_for @employee, url: "/admin_page", method: :post do |f| %>
 
@@ -31,9 +32,12 @@
 
     <%= f.password_field :password %> <br>
 
+    <label><b>Type</b></label><br>
+    <%= f.text_field :user_type %> <br>
+
     <div class="form-button">	
 
-      <%= f.submit "Create Employee",  :class => "button"%> 
+      <%= f.submit "Create Employee",  :class => "button"%>
   </div>
 
   <% end %>

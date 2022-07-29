@@ -18,6 +18,7 @@ class AdminPageController < ApplicationController
   
   def show
     @employee = Employee.find(params[:id])
+    @vec = @employee.vechiles.count()
   end
 
   def edit
@@ -47,7 +48,7 @@ class AdminPageController < ApplicationController
   
   private
   def employee_params
-    params.require(:employee).permit(:name, :email, :password)
+    params.require(:employee).permit(:name, :email, :password, :user_type)
   end
   
   
