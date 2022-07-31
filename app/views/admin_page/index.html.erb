@@ -4,43 +4,29 @@
 			<%= flash[:notice]%>
 		</div>
 <%end%>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Parking System</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to "Home", root_path, class:"nav-link active aria-current page" %>
-        </li>
-      </ul> 
-    </div>
-  </div>
-</nav>
 
-<div class="subject index">
-	<h1>Parking Management System</h1>
-	<%= link_to "Add new Employee/User", "admin_page/new", class:'action new'%>
-	<table class="listing" summary ="Subject list">
-			<tr class="header">
-					<th>Employee</th>
-					<th>Action</th>
-				</tr>
-				<% @employee.each do |emp|%>
-					<tr>
-							<td><%= emp.name%></td>
-							<td class="action">
-									<%= link_to "Cars", admin_page_path(emp.id)%>
-									<%= link_to "Update Employee", edit_admin_page_path(id: emp.id)%>
-									<%= link_to "Fired", admin_page_delete_path(emp.id)%>
-							</td>
-					</tr>
-			<%end%>
-	</table>
+<%= link_to "Add new Employee / User", "admin_page/new", class: "link1" %>
 
-</div>
+<h1 class="card-title text-center">Parking Management System</h1>
+<table class="listing" summary ="Employee list">
+		<tr class="header">
+			<th>Employee</th>
+			<th>Action</th>
+		</tr>
+		<% @employee.each do |emp|%>
+			<tr>
+				<td><%= emp.name%></td>
+				<td class="action">
+					<%= link_to "Cars", admin_page_path(emp.id), class:"link"%>
+					<%= link_to "Update Employee", edit_admin_page_path(id: emp.id), class:"link"%>
+					<%= link_to "Fired", admin_page_delete_path(emp.id), class:"link"%>
+				</td>
+			</tr>
+		<%end%>
+</table>
+
+	
+
 
 
 

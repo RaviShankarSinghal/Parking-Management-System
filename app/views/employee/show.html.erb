@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-<%= link_to "Back to the Index Page", admin_page_index_path, class: "link1" %>
+<%= link_to "Back to the Index Page", employee_index_path, class: "link1" %>
 <div class="subjects_show">
 
     <% if !flash[:notice].blank?%>
@@ -17,23 +17,19 @@
 
                 <tr>
                     <th>Name</th>
-                    <td><%= @employee.name %></td>
+                    <td><%= @vec.number %></td>
                 </tr>
                 <tr>
-                  <th>Email</th>
-                  <td><%= @employee.email %></td>
+                  <th>Model Name</th>
+                  <td><%= @vec.car_model_name %></td>
                 </tr>
                 <tr>
-                  <th>Cars</th>
-                  <td><%= @vec%></td>
+                    <th>Parking in</th>
+                    <td><%= @vec.created_at %></td>
                 </tr>
                 <tr>
-                    <th>Created At</th>
-                    <td><%= @employee.created_at %></td>
-                </tr>
-                <tr>
-                    <th>Updated At</th>
-                    <td><%= @employee.updated_at %></td>
+                    <th>Parking Out</th>
+                    <td><%= @vec.updated_at %></td>
                 </tr>
         </tr>
         

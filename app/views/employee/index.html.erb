@@ -1,21 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Parking System</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to "Home", root_path, class:"nav-link active aria-current page" %>
-        </li>
-      </ul> 
-    </div>
-  </div>
-</nav>
-<div class="subject index">
-	<h1>Parking Management System</h1>
-	<%= link_to "Add new Vehicle", "employee/new", class:'action new'%>
+<br>
+	<%= link_to "Add new Vehicle", "employee/new", class:'action new', class: "link1"%>
+	<br> <br>
+	<h1 class="card-title text-center">Parking Management System</h1>
 	<table class="listing" summary ="Subject list">
 			<tr class="header">
 					<th>Cars</th>
@@ -27,14 +13,13 @@
 							<td><%= v.number%></td>
 							<td><%= v.car_model_name%></td>
 							<td class="action">
-                  <%= link_to "Show", employee_index_path(v.id) %>
-									<%= link_to "Destroy", employee_path(v.id), data: {
+                  <%= link_to "Show", employee_path(v.id), class:"link" %>
+									<%= link_to "Parking Out", edit_employee_path(v.id), class:"link" %>
+									<%= link_to "Wrong Entry", employee_path(v.id), class:"link", data: {
                     turbo_method: :delete,
-                    turbo_confirm: "Are you sure to out the vehicle from Parking?"
+                    turbo_confirm: "Are you sure that the entry is wrong?"
                   } %>
 							</td>
 					</tr>
 			<%end%>
 	</table>
-
-</div>

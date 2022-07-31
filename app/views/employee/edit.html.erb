@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+<%= link_to "Back to the Index Page", employee_index_path, class: "link1" %>
+<br><br>
+<div class="container">
+		<br>
+		<h1 class="h1_new">Parking Out</h1>
+
+		<%=form_for @vec, url: employee_path(@vec), :method => 'patch' do |f| %>
+
+		<label><b>Vehicle Number</b></label><br>
+
+			<%= f.text_field :number %> <br><br>
+
+			<label><b>Car Model Name</b></label><br>
+
+			<%= f.text_field :car_model_name %> <br>
+			<label><b>Parking In</b></label><br>
+			<%= f.text_field :created_at%> <br>
+			<label><b>Parking Out</b></label><br>
+			<%= f.text_field :updated_at%> <br>
+
+			<div class="form-button">	
+
+				<%= f.submit "Parking Out the Vehicle",  :class => "button"%> 
+				
+		</div>
+
+		<% end %>
+		<br>
+</div>

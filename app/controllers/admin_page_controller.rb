@@ -46,6 +46,9 @@ class AdminPageController < ApplicationController
     redirect_to admin_page_index_path
   end
   
+  
+
+
   private
   def employee_params
     params.require(:employee).permit(:name, :email, :password, :user_type)

@@ -1,20 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Parking System</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to "Home", root_path, class:"nav-link active aria-current page" %>
-        </li>
-      </ul> 
-    </div>
-  </div>
-</nav>
-<%= link_to "Back to the Index Page", admin_page_index_path %>
+<%= link_to "Back to the Index Page", admin_page_index_path, class:"link1" %>
+<br><br>
 <div class="container">
+  <br>
   <h1 class="h1_new">Create Employee/User</h1>
 
   <%=form_for @employee, url: "/admin_page", method: :post do |f| %>
@@ -34,11 +21,12 @@
 
     <label><b>Type</b></label><br>
     <%= f.text_field :user_type %> <br>
-
+    <br>
     <div class="form-button">	
 
       <%= f.submit "Create Employee",  :class => "button"%>
   </div>
+  <br>
 
   <% end %>
   
