@@ -15,7 +15,7 @@
 		</tr>
 		<% @employee.each do |emp|%>
 			<tr>
-				<td><%= emp.name%></td>
+				<td><strong><%= emp.name%></strong></td>
 				<td class="action">
 					<%= link_to "Cars", admin_page_path(emp.id), class:"link"%>
 					<%= link_to "Update Employee", edit_admin_page_path(id: emp.id), class:"link"%>

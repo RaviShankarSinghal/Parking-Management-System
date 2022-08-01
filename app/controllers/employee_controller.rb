@@ -2,7 +2,6 @@ class EmployeeController < ApplicationController
   def index
     @employees = Employee.find(session[:employee_id])
     @vec = @employees.vechiles.all
-
   end
   def new
     @employee = Employee.find(session[:employee_id])
