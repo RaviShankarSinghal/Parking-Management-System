@@ -49,6 +49,11 @@ class EmployeeController < ApplicationController
     redirect_to employee_index_path
       
   end
+
+  def show1
+    @employee = Employee.find(session[:employee_id])
+    @vec = @employee.vechiles.find(params[:employee_id])
+  end
   
   
   private

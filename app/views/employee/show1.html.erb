@@ -1,0 +1,32 @@
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+<%= link_to "Back to the Index Page", admin_page_index_path, class: "link1" %>
+<div class="subjects_show">
+
+    <table class="listing table_view">
+        <tr>  
+                <tr>
+                    <td><b>Functions</b></td>  
+                  <td><b><p>Show Subject</p></b></td>
+                </tr>
+
+                <tr>
+                    <th>Name</th>
+                    <td><%= @vec.number %></td>
+                </tr>
+                <tr>
+                  <th>Model Name</th>
+                  <td><%= @vec.car_model_name %></td>
+                </tr>
+                <tr>
+                    <th>Parking in</th>
+                    <td><%= @vec.created_at %></td>
+                </tr>
+                <tr>
+                    <th>Parking Out</th>
+                    <td><%= @vec.updated_at %></td>
+                </tr>
+        </tr>
+        
+        
+    </table>
+</div>

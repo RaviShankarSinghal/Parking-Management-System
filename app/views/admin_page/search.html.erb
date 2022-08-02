@@ -1,0 +1,12 @@
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+<%= link_to "Back to the Index Page", admin_page_index_path, class:"link1" %>
+<div class="container">
+  <%= form_tag(admin_page_search1_path, :method => "get") do %>
+    <%= label_tag(:q, "Number:") %> <br>
+    <%= text_field_tag(:q) %> <br><br>
+    <div class="form-button">
+      <%= submit_tag("Search") %>
+    </div>
+    <br>
+  <% end %>
+</div>

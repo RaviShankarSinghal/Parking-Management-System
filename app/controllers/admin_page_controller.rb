@@ -19,6 +19,7 @@ class AdminPageController < ApplicationController
   def show
     @employee = Employee.find(params[:id])
     @vec = @employee.vechiles.count()
+    @v = @employee.vechiles.all
   end
 
   def edit
@@ -46,6 +47,18 @@ class AdminPageController < ApplicationController
     redirect_to admin_page_index_path
   end
   
+  def search
+  end
+  
+  def search1
+    @vec = Vechile.search(params[:q])
+    if @vec
+
+      redirect_to employee_show1_path(6)
+    else
+      render ('search')
+    end
+  end
   
 
 

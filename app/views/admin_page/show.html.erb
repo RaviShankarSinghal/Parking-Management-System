@@ -1,14 +1,15 @@
 <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 <%= link_to "Back to the Index Page", admin_page_index_path, class: "link1" %>
+<%count = 0%>
+<% tab = 2%>
 <div class="subjects_show">
-
     <% if !flash[:notice].blank?%>
 		<div class="notice">
 			<%= flash[:notice]%>
 		</div>
     <%end%>
-
-    <table class="listing table_view">
+    <div class="table_content">
+      <table class="listing table_view">
         <tr>  
                 <tr>
                     <td><b>Functions</b></td>  
@@ -27,7 +28,6 @@
                   <th>Cars</th>
                   <td><%= @vec%></td>
                 </tr>
-                <tr>
                     <th>Created At</th>
                     <td><%= @employee.created_at %></td>
                 </tr>
@@ -35,8 +35,25 @@
                     <th>Updated At</th>
                     <td><%= @employee.updated_at %></td>
                 </tr>
-        </tr>
-        
+          </tr>
+        <table class="listing table_view">
+          <tr>
+            <th colspan="2">Vehicle Number</th>
+          </tr>
+          <tr>
+            <% @v.each do |ve|%>
+              <% if count < tab  %>
+                <td><%=ve.number%></td>
+              <% else %>
+                <tr></tr>
+                <%count = count + 2%>
+                <%tab = tab + 2%>
+              <%end%>
+            <%end%>
+          </tr>
+        </table>
         
     </table>
+    </div>
+    
 </div>

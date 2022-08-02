@@ -95,6 +95,7 @@ input{
 	text-decoration: none;
 	display: inline-block;
 	width: 99%;
+	margin-top: 50px;
 }
 .link1:hover,
 .link1:active {
@@ -114,4 +115,14 @@ input{
 .p_home{
 	font-size: 25px;
 	font-weight: 400;
+}
+
+.link2:link, .link2:visited{
+	margin-top: 20px;
+}
+.table_content{
+	display: flex;
+	justify-items: center;
+	text-align: center;
+	align-items: flex-start;
 }
