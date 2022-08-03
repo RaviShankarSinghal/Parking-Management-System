@@ -51,7 +51,7 @@ class EmployeeController < ApplicationController
   end
 
   def show1
-    @employee = Employee.find(session[:employee_id])
+    @employee = Employee.find(params[:employee_id])
     @vec = @employee.vechiles.find(params[:employee_id])
   end
   

@@ -53,8 +53,7 @@ class AdminPageController < ApplicationController
   def search1
     @vec = Vechile.search(params[:q])
     if @vec
-
-      redirect_to employee_show1_path(6)
+      redirect_to employee_show1_path(@vec.ids)
     else
       render ('search')
     end
