@@ -1,8 +1,20 @@
 class AdminPageController < ApplicationController
+  def auth
+    begin
+      if session[:employee_id].blank? && session[:admin_id].blank?
+        raise "what"
+      end
+    rescue
+      redirect_to root_path
+    end
+  end
+
   def index
+    auth
     @employee = Employee.show
   end
   def new
+    auth
     @employee = Employee.new
   end
 
@@ -17,12 +29,14 @@ class AdminPageController < ApplicationController
   end
   
   def show
+    auth
     @employee = Employee.find(params[:id])
     @vec = @employee.vechiles.count()
     @v = @employee.vechiles.all
   end
 
   def edit
+    auth
     @employee = Employee.find(params[:id])
   end
   
@@ -38,6 +52,7 @@ class AdminPageController < ApplicationController
   end
 
   def delete
+    auth
     @employee = Employee.find(params[:admin_page_id])
   end
   
@@ -48,6 +63,7 @@ class AdminPageController < ApplicationController
   end
   
   def search
+    auth
   end
   
   def search1

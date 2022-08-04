@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'home/Employee_page2'
   get 'admin_page/search'
   get 'admin_page/search1'
-  
+  get '/delete_user', to: 'home#delete_user', as: :delete
   resources :admin_page do
     get '/delete', to: 'admin_page#delete'
     
