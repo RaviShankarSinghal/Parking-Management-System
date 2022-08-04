@@ -10,8 +10,11 @@ class EmployeeController < ApplicationController
   end
   def index
     auth
-    @employees = Employee.find(session[:employee_id])
-    @vec = @employees.vechiles.all
+    
+    unless session[:employee_id].blank?
+      @employees = Employee.find(session[:employee_id])
+      @vec = @employees.vechiles.all
+    end
   end
   def new
     auth
