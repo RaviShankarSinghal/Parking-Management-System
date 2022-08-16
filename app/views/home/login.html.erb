@@ -1,0 +1,23 @@
+<br><br>
+<div class="col-lg-6 mx-lg-auto">
+    <div class="card shadow">
+      <div class="card-header">
+        <h2 class="card-title text-center">Log In</h2>
+      </div>
+      <div class="card-body">
+        <%= form_with url: home_login2_path, method: :get do |f| %>
+          <div class="form-group">
+            <%= f.label :email, class: "mb-2"%>
+            <%= f.email_field :email, class: "form-control form-control-lg"%>
+          </div>
+          <div class="form-group">
+            <%= f.label :password, class: "mb-2"%>
+            <%= f.password_field :password, class: "form-control form-control-lg"%>
+          </div>
+          <div class="actions">
+            <%= f.submit "Submit", class:"button btn"%>
+          </div>
+        <%end%> 
+      </div>
+    </div>
+</div>

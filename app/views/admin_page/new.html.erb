@@ -1,0 +1,32 @@
+<%= link_to "Back to the Index Page", admin_page_index_path, class:"link1" %>
+<br><br>
+<div class="container">
+  <br>
+  <h1 class="h1_new">Create Employee/User</h1>
+
+  <%=form_for @employee, url: "/admin_page", method: :post do |f| %>
+
+
+  <label><b>Name</b></label><br>
+
+    <%= f.text_field :name %> <br><br>
+
+    <label><b>Email</b></label><br>
+
+    <%= f.email_field :email %> <br>
+
+    <label><b>Password</b></label><br>
+
+    <%= f.password_field :password %> <br>
+
+    <label><b>Type</b></label><br>
+    <%= f.text_field :user_type %> <br>
+    <br>
+    <div class="form-button">	
+
+      <%= f.submit "Create Employee",  :class => "button"%>
+  </div>
+  <br>
+
+  <% end %>
+</div>

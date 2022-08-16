@@ -1,0 +1,40 @@
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+<% if !flash[:notice].blank?%>
+		<div class="notice">
+			<%= flash[:notice]%>
+		</div>
+<%end%>
+<h1 class="card-title text-center">Parking Management System</h1>
+<%= link_to "Add new Employee / User", "admin_page/new", class: "link1" %>
+<%= link_to "Search the Vehicle", "admin_page/search", class: "link1 link2" %>
+<% if @emp.include? ("employee") %>
+	<table class="listing" summary ="Employee list">
+		<tr class="header">
+			<th>Employee</th>
+			<th>Action</th>
+		</tr>
+		<% @employee.each do |emp|%>
+			<tr>
+				<td><strong><%= emp.name%></strong></td>
+				<td class="action">
+					<%= link_to "Cars", admin_page_path(emp.id), class:"link"%>
+					<%= link_to "Update Employee", edit_admin_page_path(id: emp.id), class:"link"%>
+					<%= link_to "Fired", admin_page_delete_path(emp.id), class:"link"%>
+				</td>
+			</tr>
+		<%end%>
+	</table>
+<% else%>
+	<h2 class="text-center">There are no employee present in your organization</h2>
+<%end%>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+<%= link_to "Back to the Index Page", admin_page_index_path, class: "link1" %>
+<br><br>
+<div class="container">
+		<br>
+		<h1 class="h1_new">Update Employee Details</h1>
+
+		<%=form_for @employee, url: admin_page_path(@employee), :method => 'patch' do |f| %>
+
+		<label><b>Name</b></label><br>
+
+			<%= f.text_field :name %> <br><br>
+
+			<label><b>Email ID</b></label><br>
+
+			<%= f.email_field :email %> <br>
+
+      <label><b>Password</b></label><br>
+
+			<%= f.password_field :password %> <br>
+
+			<div class="form-button">	
+
+				<%= f.submit "Update Subject",  :class => "button"%> 
+				
+		</div>
+
+		<% end %>
+</div>
