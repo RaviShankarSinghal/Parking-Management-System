@@ -11,7 +11,6 @@ class AdminPageController < ApplicationController
   def index
     auth
     @emp = Employee.pluck(:user_type)
-    
     @employee = Employee.show
   end
   def new
@@ -31,8 +30,9 @@ class AdminPageController < ApplicationController
   def show
     auth
     @employee = Employee.find(params[:id])
-    @vec = @employee.vechiles.count()
-    @v = @employee.vechiles.all
+    @floor = @employee.floor.first
+    @slot = @floor.slots.where(parking_status: "full")
+    @vec = @slot.count()
   end
 
   def edit

@@ -3,8 +3,7 @@ class CreateVechiles < ActiveRecord::Migration[7.0]
     create_table :vechiles do |t|
       t.string :number
       t.string :car_model_name
-      t.integer :employee_id
-      t.integer :parking_spots_id
+      t.belongs_to :slot
       t.timestamps
     end
   end

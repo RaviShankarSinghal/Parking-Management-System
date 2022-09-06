@@ -1,24 +1,21 @@
 <br>
 <%= link_to "Back to the Index Page", employee_index_path, class: "link1" %> <br> <br>
 <div class="container">
-  <br>
-  <h1 class="h1_new">Add Car</h1>
-
-  <%=form_for @vec, url: "/employee", method: :post do |f| %>
-
-
-  <label><b>Vehicle Number</b></label><br>
-
-    <%= f.text_field :number %> <br><br>
-
-    <label><b>Model No.</b></label><br>
-
-    <%= f.text_field :car_model_name %> <br>
-  <br>
-    <div class="form-button">	
-
-      <%= f.submit "Parking In",  :class => "button"%> 
-  </div>
-  <br>
-  <% end %>
-  
+    <br>
+  <%unless @vec.blank? %>
+    <h1 class="h1_new">Add Car</h1>
+    <%=form_for @vec, url: "/employee", method: :post do |f| %>
+    <label><b>Vehicle Number</b></label><br>
+      <%= f.text_field :number %> <br><br>
+      <label><b>Model No.</b></label><br>
+      <%= f.text_field :car_model_name %> <br>
+    <br>
+      <div class="form-button">
+        <%= f.submit "Parking In",  :class => "button"%>
+    </div>
+    <br>
+    <% end %>
+  <% else%>
+    <h3 class="text-center">All the Parking Slots are full</h3>
+  <%end%>
+</div>

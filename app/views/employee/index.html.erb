@@ -8,18 +8,20 @@
 					<th>Model Name</th>
 					<th>Action</th>
 				</tr>
-				<% @vec.each do |v|%>
+				<% @slot.each do |v|%>
 					<tr>
-							<td><%= v.number%></td>
-							<td><%= v.car_model_name%></td>
+						<%unless v.vechiles.blank?%>
+							<td><%= v.vechiles.first.number%></td>
+							<td><%= v.vechiles.first.car_model_name%></td>
 							<td class="action">
-                  <%= link_to "Show", employee_path(v.id), class:"link" %>
-									<%= link_to "Parking Out", edit_employee_path(v.id), class:"link" %>
-									<%= link_to "Wrong Entry", employee_path(v.id), class:"link", data: {
+                  <%= link_to "Show", employee_path(v.vechiles.first.id), class:"link" %>
+									<%= link_to "Parking Out", edit_employee_path(v.vechiles.first.id), class:"link" %>
+									<%= link_to "Wrong Entry", employee_path(v.vechiles.first.id), class:"link", data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure that the entry is wrong?"
                   } %>
 							</td>
+						<%end%>
 					</tr>
 			<%end%>
 	</table>

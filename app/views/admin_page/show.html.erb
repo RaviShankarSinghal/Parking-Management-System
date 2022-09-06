@@ -35,25 +35,7 @@
                     <th>Updated At</th>
                     <td><%= @employee.updated_at %></td>
                 </tr>
-          </tr>
-        <table class="listing table_view">
-          <tr>
-            <th colspan="2">Vehicle Number</th>
-          </tr>
-          <tr>
-            <% @v.each do |ve|%>
-              <% if count < tab  %>
-                <td><%=ve.number%></td>
-              <% else %>
-                <tr></tr>
-                <%count = count + 2%>
-                <%tab = tab + 2%>
-              <%end%>
-            <%end%>
-          </tr>
-        </table>
-        
-    </table>
+              </tr>
+      </table>
     </div>
-    
 </div>

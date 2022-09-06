@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get '/delete_user', to: 'home#delete_user', as: :delete
   resources :admin_page do
     get '/delete', to: 'admin_page#delete'
-    
   end
   resources :employee do
     get '/delete', to: 'employee#delete'

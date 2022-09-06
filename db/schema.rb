@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_28_160317) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_06_185844) do
   create_table "employees", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -20,19 +20,30 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_28_160317) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "parking_spots", force: :cascade do |t|
-    t.integer "status"
+  create_table "floors", force: :cascade do |t|
+    t.integer "number"
+    t.integer "employee_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "slots", force: :cascade do |t|
+    t.integer "floor_id", null: false
+    t.string "slot_number"
+    t.integer "parking_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["floor_id"], name: "index_slots_on_floor_id"
   end
 
   create_table "vechiles", force: :cascade do |t|
     t.string "number"
     t.string "car_model_name"
-    t.integer "employee_id"
-    t.integer "parking_spots_id"
+    t.integer "slot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["slot_id"], name: "index_vechiles_on_slot_id"
   end
 
+  add_foreign_key "slots", "floors"
 end

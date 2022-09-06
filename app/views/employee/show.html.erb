@@ -1,17 +1,15 @@
 <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 <%= link_to "Back to the Index Page", employee_index_path, class: "link1" %>
 <div class="subjects_show">
-
     <% if !flash[:notice].blank?%>
 		<div class="notice">
 			<%= flash[:notice]%>
 		</div>
     <%end%>
-
     <table class="listing table_view">
-        <tr>  
+        <tr>
                 <tr>
-                    <td><b>Functions</b></td>  
+                    <td><b>Functions</b></td>
                   <td><b><p>Show Subject</p></b></td>
                 </tr>
 
@@ -32,7 +30,5 @@
                     <td><%= @vec.updated_at %></td>
                 </tr>
         </tr>
-        
-        
     </table>
 </div>
