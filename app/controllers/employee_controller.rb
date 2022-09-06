@@ -68,9 +68,9 @@ class EmployeeController < ApplicationController
   def destroy
     auth
     @employee = Employee.find(session[:employee_id])
-    @floor = @employee.floor.first
-    @slot = @floor.slots.first
-    @vec = @slot.vechiles.first
+    @vec = Vechile.find(params[:id])
+    @slot = Slot.find(@vec.slot_id)
+    @slot.update(parking_status: "empty")
     @vec.destroy
     redirect_to employee_index_path
   end
