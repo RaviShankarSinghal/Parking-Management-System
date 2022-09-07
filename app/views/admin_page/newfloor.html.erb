@@ -10,6 +10,8 @@
   <h1 class="h1_new">Create Floor</h1>
 
   <%=form_with url: "/createfloor", method: :post do |f| %>
+    <label><b>Employee Email</b></label>
+    <%= f.email_field :email%> <br>
     <label><b>Number of Floor</b></label><br>
     <%= f.number_field :number %> <br>
     <br>

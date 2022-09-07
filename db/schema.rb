@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_185844) do
   create_table "vechiles", force: :cascade do |t|
     t.string "number"
     t.string "car_model_name"
+    t.integer "price"
     t.integer "slot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

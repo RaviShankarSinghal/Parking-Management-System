@@ -77,11 +77,12 @@ class AdminPageController < ApplicationController
     auth
   end
   def createfloor
-    if params[:number].to_i > 1
+    @employee = Employee.find_by(email: params[:email])
+    if params[:number].to_i > 0
       params[:number].to_i.times do |j|
           @floor = Floor.find_by(number: j+1)
           if @floor.blank?
-            @floor = Floor.new(number: j+1)
+            @floor = @employee.floor.new(number: j+1)
             if @floor.save
               10.times{
                 |i|
@@ -97,11 +98,12 @@ class AdminPageController < ApplicationController
     else
       @floor = Floor.find_by(number: params[:number])
       if @floor.blank?
-        @floor = Floor.new(number: params[:number])
+        @floor = @employee.floor.new(number: params[:number])
         if @floor.save
           10.times{
             |i|
-            @slot = @floor.slot.create(number: i)
+            @slot = @floor.slots.create(slot_number: i+1)
+            debugger
           }
         else
           redirect_to admin_page_index_path
