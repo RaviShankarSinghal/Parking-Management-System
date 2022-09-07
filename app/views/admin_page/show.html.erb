@@ -10,9 +10,9 @@
     <%end%>
     <div class="table_content">
       <table class="listing table_view">
-        <tr>  
+        <tr>
                 <tr>
-                    <td><b>Functions</b></td>  
+                    <td><b>Functions</b></td>
                   <td><b><p>Show Subject</p></b></td>
                 </tr>
 
@@ -23,6 +23,14 @@
                 <tr>
                   <th>Email</th>
                   <td><%= @employee.email %></td>
+                </tr>
+                <tr>
+                  <th>Floor</th>
+                  <%if @f.blank? %>
+                   <td>0</td>
+                  <% else%>
+                    <td><%= @f.number %></td>
+                  <%end%>
                 </tr>
                 <tr>
                   <th>Cars</th>

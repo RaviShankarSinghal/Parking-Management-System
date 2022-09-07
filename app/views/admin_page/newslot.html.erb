@@ -1,0 +1,30 @@
+<%= link_to "Back to the Index Page", admin_page_index_path, class:"link1" %>
+<% if !flash[:notice].blank?%>
+		<div class="notice">
+			<%= flash[:notice]%>
+		</div>
+<%end%>
+<br><br>
+<div class="container">
+  <br>
+  <h1 class="h1_new">Create Slot</h1>
+
+  <%=form_with url: "/createslot", method: :post do |f| %>
+
+
+  <label><b>Floor Number</b></label><br>
+
+    <%= f.number_field :number %> <br><br>
+
+    <label><b>Number of Slot</b></label><br>
+
+    <%= f.number_field :slot_number %> <br>
+    <br>
+    <div class="form-button">
+
+      <%= f.submit "Add Slot",  :class => "button"%>
+  </div>
+  <br>
+
+  <% end %>
+</div>

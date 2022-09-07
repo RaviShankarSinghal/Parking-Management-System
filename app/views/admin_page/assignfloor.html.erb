@@ -1,0 +1,16 @@
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+<%= link_to "Back to the Index Page", admin_page_index_path, class: "link1" %>
+<br><br>
+<div class="container">
+		<br>
+		<h1 class="h1_new">Update Employee Floor Details</h1>
+		<%=form_with url: "/assign_floor", :method => 'patch' do |f| %>
+			<label><b>Email ID</b></label><br>
+			<%= f.email_field :email %> <br>
+      <label><b>Floor</b></label><br>
+			<%= f.number_field :number %> <br>
+			<div class="form-button">
+				<%= f.submit "Assign Floor",  :class => "button"%>
+		</div>
+		<% end %>
+</div>
