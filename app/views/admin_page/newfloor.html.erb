@@ -1,8 +1,9 @@
 <%= link_to "Back to the Index Page", admin_page_index_path, class:"link1" %>
 <% if !flash[:notice].blank?%>
-		<div class="notice">
-			<%= flash[:notice]%>
-		</div>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <%= flash[:notice]%>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
 <%end%>
 <br><br>
 <div class="container">
@@ -11,9 +12,9 @@
 
   <%=form_with url: "/createfloor", method: :post do |f| %>
     <label><b>Employee Email</b></label>
-    <%= f.email_field :email%> <br>
+    <%= f.email_field :email, required: true %> <br>
     <label><b>Number of Floor</b></label><br>
-    <%= f.number_field :number %> <br>
+    <%= f.number_field :number, required: true %> <br>
     <br>
     <div class="form-button">
       <%= f.submit "Add Floor",  :class => "button"%>

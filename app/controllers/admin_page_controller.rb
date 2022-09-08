@@ -91,26 +91,13 @@ class AdminPageController < ApplicationController
               flash[:notice] = "Successfully Assigned..."
               redirect_to admin_page_index_path
             else
-              redirect_to admin_page_index_path
+              render('new')
             end
           end
       end
     else
-      @floor = Floor.find_by(number: params[:number])
-      if @floor.blank?
-        @floor = @employee.floor.new(number: params[:number])
-        if @floor.save
-          10.times{
-            |i|
-            @slot = @floor.slots.create(slot_number: i+1)
-            debugger
-          }
-        else
-          redirect_to admin_page_index_path
-        end
-      else
-        flash[:notice] = "Floor are already present"
-      end
+        flash[:notice] = "Please put floor in positive number"
+        render('newfloor')
     end
   end
   def newslot
@@ -118,19 +105,22 @@ class AdminPageController < ApplicationController
   end
   def createslot
     @floor = Floor.find_by(number: params[:number])
-    if params[:slot_number].to_i > 1
-      params[:slot_number].to_i.times{
-        |i|
-        @slot = @floor.slots.find_by(slot_number: i+1)
-        if @slot.blank?
-          @slot = @floor.slots.create(slot_number: i+1)
-        end
-      }
-    else
-      @slot = @floor.slots.find_by(slot_number: params[:slot_number])
-      if @slot.blank?
-        @slot = @floor.slots.create(slot_number: params[:slot_number])
+    if params[:slot_number].to_i > 0
+      if @floor.slots.create(slot_number: params[:slot_number]).valid?
+        params[:slot_number].to_i.times{
+          |i|
+          @slot = @floor.slots.find_by(slot_number: i+1)
+          if @slot.blank?
+            @slot = @floor.slots.create(slot_number: i+1)
+          end
+        }
+      else
+        flash[:notice] = "You have already created all the slots"
+        render('newslot')
       end
+    else
+      flash[:notice] = "Please enter the slot in postivie number"
+      render ('newslot')
     end
   end
 

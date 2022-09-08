@@ -1,29 +1,35 @@
+<% if !flash[:notice].blank?%>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <%= flash[:notice]%>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<%end%>
 <br>
-	<%= link_to "Add new Vehicle", "employee/new", class:'action new', class: "link1"%>
-	<br> <br>
+<div class="col-lg-12">
 	<h1 class="card-title text-center">Parking Management System</h1>
-	<table class="listing" summary ="Subject list">
-			<tr class="header">
-					<th>Cars</th>
-					<th>Model Name</th>
-					<th>Action</th>
-				</tr>
-			<% unless @slot.blank?%>
-				<% @slot.each do |v|%>
-					<tr>
+	<br>
+	<%= link_to "Add new Vehicle", "employee/new", class:'action new', class: "link1"%>
+	<h3 class="mt-4 mb-4 text-center">Vehicle List</h3>
+	<% unless @slot.blank?%>
+		<% @slot.each do |v|%>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="card shadow mb-3 mt-3">
+					<div class="card-body">
 						<%unless v.vechiles.blank?%>
-							<td><%= v.vechiles.first.number%></td>
-							<td><%= v.vechiles.first.car_model_name%></td>
-							<td class="action">
-									<%= link_to "Show", employee_path(v.vechiles.first.id), class:"link" %>
-									<%= link_to "Parking Out", edit_employee_path(v.vechiles.first.id), class:"link" %>
-									<%= link_to "Wrong Entry", employee_path(v.vechiles.first.id), class:"link", data: {
-										turbo_method: :delete,
-										turbo_confirm: "Are you sure that the entry is wrong?"
-									} %>
-							</td>
+							<h4 class="card-title"><%= v.vechiles.first.number%></h4>
+							<h4 class="card-title"><%= v.vechiles.first.car_model_name%></h4>
+							<%= link_to "Show", employee_path(v.vechiles.first.id), class:"btn btn-danger btn-lg" %>
+							<%= link_to "Parking Out", edit_employee_path(v.vechiles.first.id), class:"btn btn-primary btn-lg" %>
+							<%= link_to "Wrong Entry", employee_path(v.vechiles.first.id), class:"btn btn-danger btn-lg", data: {
+								turbo_method: :delete,
+								turbo_confirm: "Are you sure that the entry is wrong?"
+							} %>
 						<%end%>
-					</tr>
-				<%end%>
-			<%end%>
-	</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<% end%>
+	<%end%>
+</div>

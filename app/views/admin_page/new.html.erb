@@ -9,15 +9,15 @@
 
   <label><b>Name</b></label><br>
 
-    <%= f.text_field :name %> <br><br>
+    <%= f.text_field :name, required: true  %> <br><br>
 
     <label><b>Email</b></label><br>
 
-    <%= f.email_field :email %> <br>
+    <%= f.email_field :email, required: true  %> <br>
 
     <label><b>Password</b></label><br>
 
-    <%= f.password_field :password %> <br>
+    <%= f.password_field :password, required: true %> <br>
 
     <label><b>Type</b></label><br>
     <%= f.text_field :user_type %> <br>

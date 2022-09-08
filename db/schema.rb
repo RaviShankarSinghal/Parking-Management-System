@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_185844) do
 
   create_table "slots", force: :cascade do |t|
     t.integer "floor_id", null: false
-    t.string "slot_number"
+    t.integer "slot_number"
     t.integer "parking_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
