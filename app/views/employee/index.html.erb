@@ -17,8 +17,8 @@
 				<div class="card shadow mb-3 mt-3">
 					<div class="card-body">
 						<%unless v.vechiles.blank?%>
-							<h4 class="card-title"><%= v.vechiles.first.number%></h4>
-							<h4 class="card-title"><%= v.vechiles.first.car_model_name%></h4>
+							<h4 class="card-title">Vehicle number : <%= v.vechiles.first.number%></h4>
+							<h4 class="card-title">Vehicle Model : <%= v.vechiles.first.car_model_name%></h4>
 							<%= link_to "Show", employee_path(v.vechiles.first.id), class:"btn btn-danger btn-lg" %>
 							<%= link_to "Parking Out", edit_employee_path(v.vechiles.first.id), class:"btn btn-primary btn-lg" %>
 							<%= link_to "Wrong Entry", employee_path(v.vechiles.first.id), class:"btn btn-danger btn-lg", data: {

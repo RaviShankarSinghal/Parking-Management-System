@@ -18,6 +18,15 @@
                   <td><%= @vec.car_model_name %></td>
                 </tr>
                 <tr>
+                    <th>Floor</th>
+                    <td><%= @vec.slot.floor.number %></td>
+                  </tr>
+                <tr>
+                    <tr>
+                        <th>slot</th>
+                        <td><%= @vec.slot.slot_number %></td>
+                      </tr>
+                    <tr>
                     <th>Parking in</th>
                     <td><%= @vec.created_at %></td>
                 </tr>

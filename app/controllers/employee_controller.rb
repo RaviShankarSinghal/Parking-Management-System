@@ -82,7 +82,7 @@ class EmployeeController < ApplicationController
   def show1
     auth
     @employee = Employee.find(params[:employee_id])
-    @vec = @slot.vechile.search(params[:id])
+    @vec = Vechile.find_by(params[:q])
   end
   
   private
