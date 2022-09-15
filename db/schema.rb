@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_09_06_185844) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "employees", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -28,7 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_185844) do
   end
 
   create_table "slots", force: :cascade do |t|
-    t.integer "floor_id", null: false
+    t.bigint "floor_id", null: false
     t.integer "slot_number"
     t.integer "parking_status"
     t.datetime "created_at", null: false
@@ -40,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_185844) do
     t.string "number"
     t.string "car_model_name"
     t.integer "price"
-    t.integer "slot_id"
+    t.bigint "slot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slot_id"], name: "index_vechiles_on_slot_id"
